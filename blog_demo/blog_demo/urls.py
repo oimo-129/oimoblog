@@ -16,7 +16,33 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
+#添加include模块
+from django.urls import include
+#添加测试日志
+import logging
+
+#获取日志记录器
+logger = logging.getLogger('blog')
+
+#使用日志
+def log_view(request):
+    try:
+        # 记录日志
+        logger.info('用户访问了首页')
+        logger.debug('调试信息')
+        
+        # 返回响应
+        return HttpResponse("Hello, 这是首页!")
+    except Exception as e:
+        logger.error(f'发生错误: {str(e)}')
+        return HttpResponse("发生错误!", status=500)
+        
+        
+        
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),   
+    # 引入users应用的路由
+    path('', include(('users.urls','users'),namespace='users')),
 ]
