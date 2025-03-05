@@ -147,7 +147,10 @@ class Captcha(object):
         char_images = []
         for c in self._text:
             font = random.choice(fonts)
+            #缺失方法textsize
             c_width, c_height = draw.textsize(c, font=font)
+            #c_width, c_height = font.getsize(c)
+            #draw.textsize(c, font=font)
             char_image = Image.new('RGB', (c_width, c_height), (0, 0, 0))
             char_draw = Draw(char_image)
             char_draw.text((0, 0), c, font=font, fill=color)

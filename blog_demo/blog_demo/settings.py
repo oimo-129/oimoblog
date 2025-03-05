@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles', 
     # 用户模块
     'users.apps.UsersConfig',
+    'django_extensions',
+    'captcha',
 ]
 
 MIDDLEWARE = [

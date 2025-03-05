@@ -45,4 +45,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),   
     # 引入users应用的路由
     path('', include(('users.urls','users'),namespace='users')),
+    #验证码
+    path('captcha/', include('captcha.urls')),
+    
 ]

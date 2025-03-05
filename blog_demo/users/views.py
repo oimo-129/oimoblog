@@ -42,3 +42,7 @@ class ImageCodeView(View):
 #redis缓存
 #template载入
 #Vue调用
+
+
+#验证码功能导入失败，预估是因为导入的captcha库文件依赖引入的pillow库，版本过高，导致依赖的text方法缺失，无法画出验证码
+#导致redis无数据返回前端界面
